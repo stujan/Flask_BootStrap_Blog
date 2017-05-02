@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Particle Polygons</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+
+      <style>
+      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+      body {
+  background: black;
+  overflow: hidden;
+  cursor: none;
+}
+
+    </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+
+<body>
+<audio controls="controls" id="audio" style="display: none;">你的浏览器不支持audio标签</audio>
+  <canvas id='canvas-club'></canvas>
+
+<script>
+{##}
+{#        for (var i = 0; i < 5; i++) {#}
+{#            setTimeout(function () {#}
+{#                var p = new P();#}
+{#                p.init();#}
+{#                particles.push(p);#}
+{#            }, i * 5000);#}
+{#        }#}
+
+{#        for (var i = 0; i < 5; i++) {#}
+{#            setTimeout(function () {#}
+{#                var p = new P();#}
+{#                p.init();#}
+{#                p.ransharp = 2;#}
+{#                particles.push(p);#}
+{##}
+{#            }, i * 50);#}
+{#        }#}
+
+var add = 0;
+
+
+function addgra() {
+    if(add = 0){
+        add = 1;
+    }else{
+        add = 0;
+    }
+}
+
+function anim(){
+	ctx.fillStyle = clearColor;
+	ctx.globalCompositeOperation = "source-over";
+	ctx.fillRect(0,0,w, h);
+	var img = new Image();
+            img.src = "{{ url_for('static', filename = 'img/1.jpg') }}";
+            img.onload = function() {
+              ctx.drawImage(img, 0, 0,w,h);
+            };
+
+
+    var array = new Uint8Array(128);
+    analyser.getByteFrequencyData(array);
+
+
+    var total = 0
+    for(var i in array){
+        total += array[i]
+    }
+    total = total / 128;
+    console.log(total);
+    if (total > 80) {
+
+{#        array.sort();#}
+{#        var g = [array[70],array[83],array[95],array[114],array[127]];#}
+{##}
+{#            var num = 0;#}
+{#            if (total < 80){#}
+{#                num = 0;#}
+{#            }#}
+{#            else if (total < 100) {#}
+{#                num = 1;#}
+{#            }#}
+{#            else if (total < 140) {#}
+{#                num = 2;#}
+{#            }#}
+{#            else if (total < 160) {#}
+{#                num = 3;#}
+{#            }#}
+{#            else if (total< 180) {#}
+{#                num = 4;#}
+{#            }#}
+{#            else if (total>= 200) {#}
+{#                num = 5;#}
+{#            }#}
+
+{#        for (var i=0;i<num;i++) {#}
+{##}
+            var ptn = 0;
+            if (total >= 180) {
+                ptn = 8;
+            }
+            else if (total < 170 && total >= 160) {
+                ptn = 7;
+            }
+            else if (total < 150 && total >= 140) {
+                ptn = 6;
+            }
+            else if (total < 140 && total >= 130) {
+                ptn = 5;
+            }
+            else if (total < 130 && total >= 120) {
+                ptn = 4;
+            }
+            else if (total < 120 && total >= 110) {
+                ptn = 3;
+            }
+            else if (total < 110 && total >= 100) {
+                ptn = 2;
+            }
+            else if (total < 100 && total >= 80) {
+                ptn = 1;
+            }
+            else {
+                ptn = 0;
+            }
+            if(add == 0) {
+                var p = new P();
+                p.init();
+                p.ransharp = ptn;
+                particles.push(p);
+                add = 1;
+                setTimeout(function () {
+                    addgra();
+                },500)
+            }
+{#        }#}
+
+
+    }
+
+
+        for (var i in particles) {
+            var p = particles[i];
+
+            if(p.ransharp == -1){
+                particles.splice(i,1)
+            }
+            else{
+                p.draw()
+            }
+        }
+
+
+	hue += .5;
+    requestAnimationFrame(anim);
+
+}
+</script>
+
+<script src="{{ url_for('static',filename = 'js/index.js') }}"></script>
+
+</body>
+</html>

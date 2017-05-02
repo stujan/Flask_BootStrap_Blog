@@ -1,0 +1,74 @@
+<ul class="posts">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Project
+                <small>by Sanjay</small>
+            </h1>
+        </div>
+    </div>
+    <section id="portfolio">
+        <div class="container">
+
+            <div class="row no-gutter popup-gallery">
+
+                {% for project in projects %}
+                    {% if not current_user.is_authenticated and not project.show %}
+                    {% else %}
+                    <div class="col-sm-4 portfolio-item">
+                    <a href="{{ url_for('.project',id=project.id) }}" class="portfolio-box">
+
+                        <img src="{{ project.imgurl }}"  class="img-responsive" alt="Cabin">
+                    </a>
+                    </div>
+                    {% endif %}
+
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{#    <li class="post" >#}
+{#        <a href="{{ url_for('.post', id=post.id) }}">#}
+{#            {% if post.title %}#}
+{#                <h2 class="post-title">#}
+{#                {{ post.title }}#}
+{#                </h2>#}
+{#            {% endif %}#}
+{#            <h3>#}
+{#                {{ post.subheading }}#}
+{#            </h3>#}
+{#            <div class="post-body" style="height: 10em ;overflow:hidden ">#}
+{#                {% if post.body_html %}#}
+{#                    {{ post.body_html | safe }}#}
+{#                {% else %}#}
+{#                    <h3 class="post-subtitle">#}
+{#                    {{ post.body }}#}
+{#                    </h3>#}
+{#                {% endif %}#}
+{#            </div>#}
+{#        </a>#}
+{#        <div class="row">#}
+{#            <div class="col-md-7">#}
+{#                <a href="{{ url_for('.project',id=project.id) }}">#}
+{#                    <img class="img-responsive" src="{{ project.imgurl }}" alt="">#}
+{#                </a>#}
+{#            </div>#}
+{#            <div class="col-md-5">#}
+{#                <h3>{{ project.name }}</h3>#}
+{#                <h4>Posted by  {{ project.timestamp}}</h4>#}
+{#                <h5>{{ project.heading }}</h5>#}
+{#                <a href="{{ url_for('.project',id=project.id) }}"><i class="fa fa-4x fa-arrow-right" aria-hidden="true"></i></a>#}
+{#            </div>#}
+{#            <div class="post-footer">#}
+{#                {% if current_user.is_authenticated%}#}
+{#                <a href="{{ url_for('.editproject', id=project.id) }}">#}
+{#                    <p>Edit</p>#}
+{#                </a>#}
+{#                {% endif %}#}
+{#            </div>#}
+{#        </div>#}
+
+
+{#    </li>#}
+
+</ul>

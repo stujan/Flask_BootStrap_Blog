@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+{% block title %}Main{% endblock %}
+{% block head %}
+    <header class="intro-header" style="background-image: url({{ imgurl }})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>SanJay's Blog</h1>
+                        <hr class="small">
+                        <span class="subheading">stu - 2014 - computer and science</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block page_content %}
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    {%  include '_posts.html' %}
+    <div class="pagination">
+        {{ macros.pagination_widget(pagination,'.index') }}
+    </div>
+    </div>
+{% endblock %}
+
+
+{#{% block scripts %}#}
+{#{{ super() }}#}
+{#{{ pagedown.include_pagedown() }}#}
+{#{% endblock %}#}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Flasky - Post{% endblock %}
+{% block head %}
+    <header class="intro-header" style="background-image: url({{ info.imgurl }})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>{{ info.name }}</h1>
+                        <h2 class="subheading">{{ info.intro }}</h2>
+                        <span class="meta"><i class="fa fa-envelope" aria-hidden="true"></i>{{ info.email }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+{% endblock %}
+
+
+{% block page_content %}
+{% include '_contact.html' %}
+
+{% endblock %}

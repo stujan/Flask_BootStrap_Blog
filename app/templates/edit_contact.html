@@ -1,0 +1,35 @@
+
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flasky - Edit Contact{% endblock %}
+
+{% block head %}
+    <header class="intro-header" style="background-image: url({{ url_for('static',filename='img/about-bg.jpg') }})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="media-heading">
+                        <h3>Edit Project</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Edit Contact</h1>
+</div>
+
+
+       {{ wtf.quick_form(form) }}
+{##}
+{#    {{ form.body(only_input=True, rows=10,class="col-md-6" ) }}#}
+{#    {{ form.body() }}#}
+{#    {{ wtf.form_field(form.submit) }}#}
+
+{% endblock %}
+
+

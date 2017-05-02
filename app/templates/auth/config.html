@@ -1,0 +1,145 @@
+
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}config{% endblock %}
+
+{% block head %}
+    <header class="intro-header" style="background-image: url({{ url_for('static',filename='img/about-bg.jpg') }})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="media-heading">
+                        <h3>Admin</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block page_content %}
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class="row">
+
+    <div class="col-md-12">
+        <a href="{{ url_for('auth.logout') }}">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+        </a>
+    </div>
+
+<hr>
+</div>
+<div class="row">
+    <div class="page-header">
+        <h1>Aritcle-Type</h1>
+    </div>
+    <hr>
+    {% for i in articletype[:10] %}
+    <div class="col-md-4">
+        <a href="{{ url_for('main.allarticle', id=i.id) }}">{{ i.name }}</a>
+    </div>
+    {% endfor %}
+    <div class="col-md-4">
+        <a href="{{ url_for('main.alltype') }}">View All</a>
+    </div>
+    <div class="col-md-4">
+        <a href="{{ url_for('main.addtype') }}">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+
+    </div>
+    <hr>
+</div>
+<div class="row">
+    <div class="page-header">
+        <h1>Your Article</h1>
+    </div>
+    <hr>
+    <div class="col-md-6">
+        <a href="{{ url_for('main.index') }}">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div>
+        <a href="{{ url_for('main.addpost') }}">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+    </div>
+
+<hr>
+</div>
+<div class="row">
+    <div class="page-header">
+        <h1>Username And Password</h1>
+    </div>
+    <hr>
+    <div class="col-md-12">
+        <a>
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </a>
+    </div>
+
+<hr>
+</div>
+
+<div class="row">
+    <div class="page-header">
+        <h1>Projects</h1>
+    </div>
+
+    <div class="col-md-6">
+        <a href="{{ url_for('main.pro') }}">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div>
+        <a href="{{ url_for('main.addproject') }}">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+    </div>
+
+<hr>
+</div>
+
+<div class="row">
+    <div class="page-header">
+        <h1>Contacts</h1>
+    </div>
+    <hr>
+    <div class="col-md-6">
+        <a href="{{ url_for('main.editcontact') }}">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </a>
+    </div>
+
+<hr>
+</div>
+
+
+<div class="row">
+    <div class="page-header">
+        <h1>Background</h1>
+    </div>
+
+    <div class="col-md-6">
+        <a href="{{ url_for('main.viewbg') }}">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div>
+        <a href="{{ url_for('main.addbg') }}">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+    </div>
+
+<hr>
+</div>
+
+</div>
+
+
+
+{% endblock %}
+
+

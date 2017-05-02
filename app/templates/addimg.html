@@ -1,0 +1,31 @@
+
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Sanjay - Add Image{% endblock %}
+
+{% block head %}
+    <header class="intro-header" style="background-image: url({{ url_for('static',filename='img/about-bg.jpg') }})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="media-heading">
+                        <h3>Add Image</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
+
+{% block page_content %}
+
+<div class="page-header">
+    <h1>Add Image</h1>
+</div>
+
+    {{ wtf.quick_form(form) }}
+
+{% endblock %}
+
+

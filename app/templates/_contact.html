@@ -1,0 +1,20 @@
+
+<div class="post-content">
+
+    <div class="post-body">
+        {% if info.content_html %}
+            {{ info.content_html | safe }}
+        {% else %}
+            {{ info.content }}
+        {% endif %}
+
+    </div>
+    <div class="post-footer">
+        {% if current_user.is_authenticated%}
+        <a href="{{ url_for('.editcontact') }}">
+            <span class="label label-primary">Edit</span>
+        </a>
+        {% endif %}
+    </div>
+</div>
+
