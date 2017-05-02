@@ -18,7 +18,7 @@ class Admin(UserMixin,db.Model):
     id = db.Column(db.Integer,primary_key=True)
     username = db.Column(db.String(64),unique=True,index=True)
     password_hash = db.Column(db.String(128))
-    imgurl = db.Column(db.String(64))
+    imgurl = db.Column(db.String(64),default="http://static.simpledesktops.com/uploads/desktops/2017/03/21/showgaze_pb_02.png")
 
     @property
     def password(self):
